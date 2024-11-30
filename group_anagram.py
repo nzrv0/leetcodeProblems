@@ -1,16 +1,14 @@
+from collections import defaultdict
+
+
 def group_anagram(strs):
-    resoult = []
-    example = []
-    saved = ""
+    example_dict = defaultdict(list)
     for str in strs:
         sorted_el = "".join(sorted(str))
-        if sorted_el in example:
-            resoult.append([*example, str])
-        else:
-            example.append([sorted_el])
+        example_dict[sorted_el].append(str)
 
-        # example.append(str)
-    return example
+    resoult = list(example_dict.values())
+    return resoult
 
 
 strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
