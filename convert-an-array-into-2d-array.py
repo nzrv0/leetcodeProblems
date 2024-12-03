@@ -2,15 +2,16 @@ def convert(array):
     resoult = []
     new_array = array
     index = 0
-    unical = list(dict.fromkeys(new_array))
+    unical = list(dict.fromkeys(new_array))[::-1]
+    if len(unical) == len(new_array):
+        resoult.append(unical)
     while new_array:
         if index >= len(unical):
-            print(unical)
+            if len(unical) == len(new_array):
+                resoult.append(new_array[:])
             resoult.append(unical)
-            unical = list(dict.fromkeys(new_array))
+            unical = list(dict.fromkeys(new_array))[::-1]
             index = 0
-            if len(new_array) <= 2:
-                resoult.append(new_array[0:])
         else:
             new_array.remove(unical[index])
             index += 1
@@ -18,6 +19,6 @@ def convert(array):
     return resoult
 
 
-array = [3, 1, 2, 1, 3]
+array = [1, 3, 4, 1, 2, 3, 1]
 resoult = convert(array)
 print(resoult)
