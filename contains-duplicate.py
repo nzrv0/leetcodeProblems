@@ -5,6 +5,7 @@ class Solution:
     def resoult(self):
         resoult = True if len(set(s)) != len(s) else False
         return resoult
+        
 
 
 s = [1, 2, 3, 1]
